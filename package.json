@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preStart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "start": "node index.js",
+    "drop": "npx sequelize-cli db:drop",
+    "seed:revert": "npx sequelize-cli db:seed:undo:all",
+    "debug": "nodemon index.js",
+    "test": "jest --runInBand"
   },
   "keywords": [],
   "author": "",
