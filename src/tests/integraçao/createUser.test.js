@@ -56,14 +56,14 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
     shell.exec('npm run preStart');
   })
 
-  it('1 - Será validado que é possível cadastrar um usuário com sucesso', async () => {
+  it('1 - Usuário cadastrado com sucesso', async () => {
     await frisby
       .post(`${url}/user`, payloadUser)
       .expect('status', 201)
       .then(({json}) => expect(json.token).not.toBeNull());
   })
 
-  it('2 - Será validado que não é possível cadastrar usuário com o campo `displayName` menor que 8 caracteres', async () => {
+  it('2 - Não é possível cadastrar usuário com o campo `displayName` menor que 8 caracteres', async () => {
     await frisby
       .post(`${url}/user`, displayNameIsLengthMin)
       .expect('status', 400)
@@ -73,7 +73,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('3 - Será validado que o campo `displayName` é obrigatório', async () => {
+  it('3 - O campo `displayName` é obrigatório', async () => {
     await frisby
       .post(`${url}/user`, displayNameIsRequired)
       .expect('status', 400)
@@ -82,7 +82,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('4 - Será validado que não é possível cadastrar usuário com o campo `email` com formato `email: rubens`', async () => {
+  it('4 - Não é possível cadastrar usuário com o campo `email` formato invalido `email: rubens`', async () => {
     await frisby
       .post(`${url}/user`, emailIsValid)
       .expect('status', 400)
@@ -92,7 +92,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('5 - Será validado que não é possível cadastrar usuário com o campo `email` com formato `email: @gmail.com`', async () => {
+  it('5 - Não é possível cadastrar usuário com o campo `email` formato invalido `email: @gmail.com`', async () => {
     await frisby
       .post(`${url}/user`, emailIsValid)
       .expect('status', 400)
@@ -101,7 +101,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('6 - Será validado que o campo `email` é obrigatório', async () => {
+  it('6 - O campo `email` é obrigatório', async () => {
     await frisby
       .post(`${url}/user`, emailIsRequired)
       .expect('status', 400)
@@ -110,7 +110,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('7 - Será validado que não é possível cadastrar usuário com o campo `password` menor que 6 caracteres', async () => {
+  it('7 - Não é possível cadastrar usuário com o campo `password` menor que 6 caracteres', async () => {
     await frisby
       .post(`${url}/user`, passwordIsLengthMin)
       .expect('status', 400)
@@ -120,7 +120,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('8 - Será validado que o campo `password` é obrigatório', async () => {
+  it('8 - O campo `password` é obrigatório', async () => {
     await frisby
     .post(`${url}/user`, passwordIsRequired)
     .expect('status', 400)
@@ -129,7 +129,7 @@ describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
       });
   });
 
-  it('Validar que não é possível cadastrar um usuário com email já existente', async () => {
+  it('9 - Não é possível cadastrar um usuário com email já existente', async () => {
     await frisby
       .post(`${url}/user`, payloadUser).expect('status', 201);
 
