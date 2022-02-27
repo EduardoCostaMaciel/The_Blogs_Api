@@ -1,8 +1,8 @@
 {
   "name": "api_de_blogs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API DE BLOGS",
+  "main": "server.js",
   "scripts": {
     "preStart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "node index.js",
