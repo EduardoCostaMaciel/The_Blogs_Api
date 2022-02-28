@@ -9,6 +9,7 @@ const server = require('http').createServer(app);
 
 const userRouter = require('./src/api/routers/Users/user');
 const loginRouter = require('./src/api/routers/login/login');
+const postRouter = require('./src/api/routers/Posts/post');
 
 const corsOptions = { origin: 'http://localhost:3000' };
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 
 app.use('/user', userRouter);
 app.use('/login', loginRouter);
+app.use('/post', postRouter);
 
 app.use(errorMiddleware);
 
