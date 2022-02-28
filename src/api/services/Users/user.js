@@ -26,10 +26,18 @@ const findOneUser = async (id) => {
   if (!data) return { status: 404, data: { message: 'Usuário não existe' } }
 
   return { status: 200, data };
-}
+};
+
+const deleteUser = async (email) => {
+  const user = await User.findOne({ where: { email } });
+  await user.destroy();
+
+  return { status: 204 }
+};
 
 module.exports = {
   createUser,
   findAllUser,
   findOneUser,
+  deleteUser,
 }
