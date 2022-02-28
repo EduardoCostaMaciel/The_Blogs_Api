@@ -11,5 +11,6 @@ const userRouter = express.Router();
 
 userRouter.post('/', validSchemas(createUser), rescue(userController.createUser));
 userRouter.get('/', validToken.verifyToken, rescue(userController.findAllUser));
+userRouter.get('/:id', validToken.verifyToken, rescue(userController.findOneUser));
 
 module.exports = userRouter;
