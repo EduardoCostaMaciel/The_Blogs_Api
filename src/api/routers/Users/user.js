@@ -12,5 +12,6 @@ const userRouter = express.Router();
 userRouter.post('/', validSchemas(createUser), rescue(userController.createUser));
 userRouter.get('/', validToken.verifyToken, rescue(userController.findAllUser));
 userRouter.get('/:id', validToken.verifyToken, rescue(userController.findOneUser));
+userRouter.delete('/:me', validToken.verifyToken, rescue(userController.deleteUser));
 
 module.exports = userRouter;

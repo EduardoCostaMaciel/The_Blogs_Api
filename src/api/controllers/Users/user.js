@@ -21,8 +21,16 @@ const findOneUser = async (req, res) => {
   return res.status(status).json(data);
 };
 
+const deleteUser = async (req, res) => {
+  const { email } = req.user;
+  const { status } = await serviceUser.deleteUser(email);
+
+  return res.status(status).end();
+};
+
 module.exports = {
   createUser,
   findAllUser,
   findOneUser,
+  deleteUser,
 }
