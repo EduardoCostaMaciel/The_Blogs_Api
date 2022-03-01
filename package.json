@@ -6,6 +6,8 @@
   "scripts": {
     "preStart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "start": "node index.js",
+    "start:sql": "sudo systemctl start mysql",
+    "stop:sql": "sudo systemctl stop mysql",
     "drop": "npx sequelize-cli db:drop",
     "seed:revert": "npx sequelize-cli db:seed:undo:all",
     "debug": "nodemon index.js",
