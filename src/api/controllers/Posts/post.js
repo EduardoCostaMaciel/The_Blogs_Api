@@ -26,6 +26,12 @@ const updatePost = async (req,res) => {
   return res.status(status).json(data);
 };
 
+const searchPost = async (req, res) => {
+  const { q: query } = req.query;
+  const { status, data } = await servicesPost.searchPost(query);
+  return res.status(status).json(data);
+};
+
 const deletePost = async (req, res) => {
   const { params: { id }, user: { email } } = req;
   const { status, message } = await servicesPost.deletePost(id, email);
@@ -41,4 +47,5 @@ module.exports = {
   findByPkPost,
   updatePost,
   deletePost,
+  searchPost,
 };
