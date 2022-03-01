@@ -10,5 +10,6 @@ const validToken = require('../../auth/middlewares/validToken');
 const postRouter = express.Router();
 
 postRouter.post('/', validSchemas(createPost), validToken.verifyToken, rescue(postController.createPost));
+postRouter.get('/', validToken.verifyToken, rescue(postController.findAllPosts));
 
 module.exports = postRouter;
