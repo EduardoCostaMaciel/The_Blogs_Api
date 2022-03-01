@@ -55,9 +55,22 @@ const updatePost = async ({ title, content }, id, email) => {
   return { status: 200, data: post };
 };
 
+const deletePost = async (id, email) => {
+  const { id: idUser } = await User.findOne({ where: { email } });
+  const post = await Post.findByPk(id);
+
+  if(!post) return { status: 404, message: 'Post não existe' };
+  if(idUser !== post.userId) return { status: 401, message: 'Usuário não autorizado' };
+
+  await post.destroy();
+
+  return { status: 204 };
+};
+
 module.exports = {
   createPost,
   findAllPosts,
   findByPkPost,
   updatePost,
+  deletePost,
 };
