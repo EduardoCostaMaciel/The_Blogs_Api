@@ -12,5 +12,6 @@ const postRouter = express.Router();
 postRouter.post('/', validSchemas(createPost), validToken.verifyToken, rescue(postController.createPost));
 postRouter.get('/', validToken.verifyToken, rescue(postController.findAllPosts));
 postRouter.get('/:id', validToken.verifyToken, rescue(postController.findByPkPost));
+postRouter.put('/:id', validSchemas(createPost), validToken.verifyToken, rescue(postController.updatePost));
 
 module.exports = postRouter;
