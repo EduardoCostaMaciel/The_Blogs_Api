@@ -24,7 +24,22 @@ const findAllPosts = async () => {
   return { status: 200, data: posts };
 };
 
+const findByPkPost = async (id) => {
+  const post = await Post.findByPk(
+    id,
+    {
+      attributes: { exclude: ['userId'] },
+      include: [
+        { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      ]
+    },
+  );
+  if(!post) return { status: 404, data: { message: 'Post não existe' } }
+  return { status: 200, data: post };
+};
+
 module.exports = {
   createPost,
   findAllPosts,
+  findByPkPost,
 };
