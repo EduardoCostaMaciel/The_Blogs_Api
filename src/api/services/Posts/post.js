@@ -38,8 +38,26 @@ const findByPkPost = async (id) => {
   return { status: 200, data: post };
 };
 
+const updatePost = async ({ title, content }, id, email) => {
+  const { id: idUser } = await User.findOne({ where: { email } });
+
+  const { userId } = await Post.findByPk(id);
+
+  if(idUser !== userId) return { status: 401, data: { message: 'Usuário não autorizado' } };
+
+  await Post.update({ title, content }, { where: { id } });
+
+  const post = await Post.findByPk(
+    id,
+    { attributes: { exclude: ['id','published', 'updated'] } }
+  );
+
+  return { status: 200, data: post };
+};
+
 module.exports = {
   createPost,
   findAllPosts,
   findByPkPost,
+  updatePost,
 };

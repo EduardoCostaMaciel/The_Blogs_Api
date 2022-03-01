@@ -20,8 +20,15 @@ const findByPkPost = async (req, res) => {
   return res.status(status).json(data);
 };
 
+const updatePost = async (req,res) => {
+  const { params: { id }, user: { email }, body: { title, content } } = req;
+  const { status, data } = await servicesPost.updatePost({ title, content }, id, email);
+  return res.status(status).json(data);
+};
+
 module.exports = {
   createPost,
   findAllPosts,
   findByPkPost,
+  updatePost,
 };
