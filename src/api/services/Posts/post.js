@@ -14,6 +14,17 @@ const createPost = async ({ title, content }, email) => {
   return { status: 201, data: post };
 };
 
+const findAllPosts = async () => {
+  const posts = await Post.findAll({
+    attributes: { exclude: ['userId'] },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    ]
+  });
+  return { status: 200, data: posts };
+};
+
 module.exports = {
   createPost,
+  findAllPosts,
 };
