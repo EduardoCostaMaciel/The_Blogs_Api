@@ -9,59 +9,59 @@ const payloadUser = {
   "email": "rubensJK@gmail.com",
   "password": "123456",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 const displayNameIsRequired = {
   "email": "rubensJK@gmail.com",
   "password": "123456",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 const displayNameIsLengthMin = {
   "displayName": "rubens",
   "email": "rubensJK@gmail.com",
   "password": "123456",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 const emailIsRequired = {
   "displayName": "rubens silva",
   "password": "123456",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 const emailIsValid = {
   "displayName": "rubens silva",
   "email": "rubensJK",
   "password": "123456",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 const passwordIsRequired = {
   "displayName": "rubens silva",
   "email": "rubensJK@gmail.com",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 const passwordIsLengthMin = {
   "displayName": "rubens silva",
   "email": "rubensJK@gmail.com",
   "password": "12345",
   "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
-}
+};
 
 describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
     shell.exec('npm run preStart');
-  })
+  });
 
   it('1 - Usuário cadastrado com sucesso', async () => {
     await frisby
       .post(`${url}/user`, payloadUser)
       .expect('status', 201)
       .then(({json}) => expect(json.token).not.toBeNull());
-  })
+  });
 
   it('2 - Não é possível cadastrar usuário com o campo `displayName` menor que 8 caracteres', async () => {
     await frisby
