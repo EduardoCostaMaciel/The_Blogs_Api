@@ -20,7 +20,7 @@ const findByPkPost = async (req, res) => {
   return res.status(status).json(data);
 };
 
-const updatePost = async (req,res) => {
+const updatePost = async (req, res) => {
   const { params: { id }, user: { email }, body: { title, content } } = req;
   const { status, data } = await servicesPost.updatePost({ title, content }, id, email);
   return res.status(status).json(data);
@@ -35,8 +35,8 @@ const searchPost = async (req, res) => {
 const deletePost = async (req, res) => {
   const { params: { id }, user: { email } } = req;
   const { status, message } = await servicesPost.deletePost(id, email);
-  
-  if(message) return res.status(status).json({ message });
+
+  if (message) return res.status(status).json({ message });
 
   return res.status(status).end();
 };
