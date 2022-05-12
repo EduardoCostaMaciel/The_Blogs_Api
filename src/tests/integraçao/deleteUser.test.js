@@ -17,7 +17,7 @@ const firstUser = {
 describe('DeleteUser - Deve ter o endpoint DELETE "/user/:me"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível deletar meu usuário com sucesso', async () => {

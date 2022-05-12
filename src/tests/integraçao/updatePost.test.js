@@ -30,7 +30,7 @@ const contentNotExist = { title: 'Xablau sim !' };
 describe('UpdatePost - Deve ter o endpoint PUT "/post/:id"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível editar um "post" com sucesso', async () => {

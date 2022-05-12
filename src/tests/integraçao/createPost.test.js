@@ -33,7 +33,7 @@ const contentType = 'application/json';
 describe('CreatePost - Deve ter o endpoint POST "/post"', function () {
   beforeEach(function () {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível criar um post com sucesso', async function () {

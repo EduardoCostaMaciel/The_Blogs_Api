@@ -25,7 +25,7 @@ const mockPost = {
 describe('FindByPkPost - Deve ter o endpoint GET "post/:id"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível listar um "post" com sucesso', async () => {
