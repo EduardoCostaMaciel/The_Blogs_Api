@@ -16,7 +16,7 @@ const secondUser = {
 describe('DeletePost - Deve ter o endpoint DELETE para "post/:id"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível deletar um "post" com sucesso !', async () => {

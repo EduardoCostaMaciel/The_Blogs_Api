@@ -14,7 +14,7 @@ const userNotExist = { "email": "rubensJK@gmail.com", "password": "123456" };
 describe('Login - Sua aplicação deve ter o endpoint Post "/login"', () => {
   beforeEach(async () => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - Login realizado com sucesso', async () => {

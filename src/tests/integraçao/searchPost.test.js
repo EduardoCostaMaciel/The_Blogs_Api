@@ -45,7 +45,7 @@ const secondPost = {
 describe('SearchPost - Deve existir um endpoint GET "post/search?q=:searchTerm"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível buscar um "post" pelo "title"', async () => {

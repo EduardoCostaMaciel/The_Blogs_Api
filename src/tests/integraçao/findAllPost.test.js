@@ -39,7 +39,7 @@ const secondPost = {
 describe('FindAllPost - Deve ter o endpoint GET `/post`', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível listar todos "posts" com sucesso', async () => {

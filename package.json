@@ -4,13 +4,13 @@
   "description": "API DE BLOGS",
   "main": "server.js",
   "scripts": {
-    "preStart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "start": "node index.js",
-    "start:sql": "sudo systemctl start mysql",
-    "stop:sql": "sudo systemctl stop mysql",
+    "start:db": "sudo systemctl start mysql",
+    "stop:db": "sudo systemctl stop mysql",
+    "pre:start": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "drop": "npx sequelize-cli db:drop",
+    "start": "node server.js",
     "seed:revert": "npx sequelize-cli db:seed:undo:all",
-    "debug": "nodemon index.js",
+    "debug": "nodemon server.js",
     "test": "jest --runInBand"
   },
   "keywords": [],

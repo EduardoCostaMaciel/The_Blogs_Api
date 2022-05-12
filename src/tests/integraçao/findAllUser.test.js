@@ -21,7 +21,7 @@ const secondUser = {
 describe('FindAllUser - Aplicação deve ter o endpoint GET "/user"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - Será valido possível listar todos os usuários', async () => {

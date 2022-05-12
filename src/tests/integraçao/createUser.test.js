@@ -53,7 +53,7 @@ const passwordIsLengthMin = {
 describe('User - Sua aplicação deve ter o endpoint POST "/user"', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - Usuário cadastrado com sucesso', async () => {

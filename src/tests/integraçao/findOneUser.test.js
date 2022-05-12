@@ -16,7 +16,7 @@ const firstUser = {
 describe('FindOneUser - Sua aplicação deve ter o endpoint GET `/user/:id`', () => {
   beforeEach(() => {
     shell.exec('npm run drop');
-    shell.exec('npm run preStart');
+    shell.exec('npm run pre:start');
   });
 
   it('1 - É possível listar um usuário específico com sucesso', async () => {
