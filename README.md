@@ -1,10 +1,6 @@
 # Boas vindas ao repositório do Projeto Api de Posts !
 
-Para instalação do projeto, você deverá seguir as instruções a baixo. Fique atento a cada passo, e se tiver qualquer dúvida, envie por <a href="mailto:costaeduardomaciel@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-costaeduardomaciel@gmail.com-blue?style=flat-square&logo=gmail"></a>
-<br>
-#VQV 🚀
-
-## Aqui você vai encontrar um CRUD de posts de blog;
+## Aqui você vai encontrar um CRUD;
   - Com os seguintes endpoints:
     - POST
       - /user
@@ -22,7 +18,7 @@ Para instalação do projeto, você deverá seguir as instruções a baixo. Fiqu
     - PUT
       - /post/:id
 
-# Habilidades Desenvolvidas
+## Habilidades Desenvolvidas
   - Back-End
   - Princípios da estrutura REST:
     - Envolvem separar sua API em recursos lógicos. Esses recursos são manipulados através de solicitações HTTP onde o método(GET, POST, PUT, PATCH e DELETE) utilizado tem um significado específico.
@@ -120,49 +116,50 @@ Para instalação do projeto, você deverá seguir as instruções a baixo. Fiqu
         │   └── updatePost.test.js
         └── utils
 ```
-# Instruções para instalação do projeto
+## Instruções para instalação do projeto
+
+Para instalação do projeto, você deverá seguir as instruções a baixo. Fique atento a cada passo, e se tiver qualquer dúvida, envie por <a href="mailto:costaeduardomaciel@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-costaeduardomaciel@gmail.com-blue?style=flat-square&logo=gmail"></a>
+<br>
+#VQV 🚀
 
 ### 1. Clone o repositório
-  * `git@github.com:EduardoCostaMaciel/api_de_blogs.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd api_de_blogs`
+  * No terminal digite:
+    * `git clone git@github.com:EduardoCostaMaciel/api_de_blogs.git`.
 
 ### 2. Instale as dependências e inicialize o projeto
-  * Instale as dependências:
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd api_de_blogs`
+  * No terminal instale as dependências:
     * npm install
 
-### 3. Crie uma branch a partir da branch `master`
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-project-api-de-blogPost`
+### 3. Instale o `Mysql-Server`.
+  * Documentação:
+    * [Documentação do Mysql](https://www.mysqltutorial.org/)
+  * Video:
+    * [Video de instalação do mysql-server](https://www.youtube.com/watch?v=CnRRCTMvs8Q&t=19s&ab_channel=hcode)
 
-### 4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (devem aparecer listados os novos arquivos em vermelho)
-  * Adicione o novo arquivo ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (devem aparecer listados os arquivos em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto.'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
+### 4. Crie na raiz do projeto um arquivo `.env` .
+  * Altere os valores dos campos `MYSQL_USER` e `MYSQL_PASSWORD` com os valores que você criou na instalação do `Mysql-Server`, se for necessário altere o valor do campo `HOSTNAME`.
 
-### 5. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-project-api-de-blogPost`
+      ```
+      MYSQL_USER=nome_do_usuário
+      MYSQL_PASSWORD=senha
+      HOSTNAME=localhost
+      ```
+      * exemplo:
+          ```
+          MYSQL_USER=joao
+          MYSQL_PASSWORD=12345
+          HOSTNAME=localhost
+          ```
 
-### 6. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/EduardoCostaMaciel/api_de_blogs)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_, um título que o identifique, e clique no botão verde _"Create pull request"_. Crie da seguinte forma: `[JOAOZINHO] Projeto Api De BlogPost`
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/EduardoCostaMaciel/api_de_blogs) e confira que o seu _Pull Request_ está criado.
+### 5. Inicialização da aplicação.
+  * No terminal digite.
+    1. `npm run start:db`
+    2. `npm run pre:start`
+    3. `npm run start`
+    
+
 ---
 
 ## Ferramentas Usadas:
@@ -176,7 +173,7 @@ Para instalação do projeto, você deverá seguir as instruções a baixo. Fiqu
     - sequelize-cli:
       - É responsável por gerar e executar as operações do sequelize.
 
-  * Note
+  * Node
     - dotenv:
       - É um módulo de dependência zero que carrega variáveis ​​de ambiente de um .env arquivo em process.env.
     - body-parser:
@@ -185,21 +182,28 @@ Para instalação do projeto, você deverá seguir as instruções a baixo. Fiqu
       - Fornecer o que precisamos para rodar um servidor, criar rotas e utilizar uma conexão com o banco.
     - jsonwebtoken:
       - Para obter, com segurança, a identidade de um usuário.
+    - md5: Para converter o password em uma hash.
     - nodemon:
       - Para facilitar o fluxo de desenvolvimento e inicia a aplicação toda vez que for editada e salvar os arquivos.
     - cors:
-      - Para definir quais conexões aceitar
+      - Para definir quais conexões aceitar.
     - joi:
       - Para validação dos campos do 'body'.
     - express-rescue:
       - Ajuda com a tarefa de garantir que os erros sempre sejam tratados envolvendo em um estrutura de "try" e "catch".
-    - md5:
 
   * Tests
-    - shelljs:
-      - Para facilitar executar comandos nos testes.
+    - jest:
+      - É um ótimo framework de testes muito utilizado no mercado e facilita bastante a criação dos testes.
     - frisby:
       - É uma ferramenta de teste de API criada com base no Jest que torna o teste de endpoints de API mais fáceis.
-    - jest:
-      - É um ótimo framework de testes.
-      - Para facilitar a criação dos testes.
+    - shelljs:
+      - Para facilitar executar comandos nos testes.
+
+    * `Comandos no terminal para rodar os testes`: ⚠️ A aplicação deve está rodando ⚠️
+      * Todos os teste:
+        * `npm run test`
+      * Um arquivo especifico:
+        * `npm run test nome_do_arquivo.test.js`
+        * exemplo:
+          * `npm run test createPost.test.js`
